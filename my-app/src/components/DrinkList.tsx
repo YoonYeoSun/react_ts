@@ -3,6 +3,15 @@ import { useState } from "react";
 const DrinkList = () => {
 
     const [drinks, setDrinks] = useState<string[]>(["사이다", "녹차", "주스"]);
+
+    // 음료 추가 함수
+    const addDrink = () => {
+        const newDrink = prompt(`추가할 음요를 입력하세요:`);
+        if(newDrink) {
+            // 기존 배열에 새 음료를 추가
+            setDrinks([...drinks, newDrink]);
+        }
+    }
     return (
         <div>
             <h3>음료 목록</h3>
@@ -13,9 +22,7 @@ const DrinkList = () => {
                     ))
                 }
             </ul>
-            <input
-                type="text"
-            />    
+            <button onClick={addDrink}>음료 추가</button>  
         </div>
     )
 }

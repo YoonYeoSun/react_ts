@@ -1,3 +1,4 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Counter from './components/Counter'
 import DrinkList from './components/DrinkList'
@@ -5,6 +6,8 @@ import Greet from './components/Greet'
 import InputValueState from './components/InputValueState'
 import Player from './components/Player'
 import Player2 from './components/Player2'
+import Todos from './placeholder/Todos'
+import TodoDetail from './placeholder/TodoDetail'
 
 function App() {
 
@@ -32,7 +35,14 @@ function App() {
         /> */}
         {/* <Counter /> */}
         {/* <InputValueState /> */}
-        <DrinkList />
+        {/* <DrinkList /> */}
+
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Todos />} />
+            <Route path="/:id" element={<TodoDetail />} />
+          </Routes>
+        </BrowserRouter>
       </section>
     </>
   )
